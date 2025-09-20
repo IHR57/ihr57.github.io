@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iqbal Hossain | Portfolio</title>
+  <title>IQBAL HOSSAIN | Portfolio</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -37,7 +37,7 @@
       font-weight: 500;
     }
     section {
-      padding: 50px 20px;
+      padding: 20px 20px;
       max-width: 1000px;
       margin: auto;
     }
@@ -47,7 +47,40 @@
       margin-bottom: 20px;
       padding-bottom: 5px;
     }
-    .skills, .projects {
+    /* Modern skill chips */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 16px;
+    }
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      background: #eaf3fb;
+      color: #2166a5;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(52,152,219,0.08);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: 1px solid #d0e6fa;
+      margin-bottom: 8px;
+    }
+    .skill-chip:hover {
+      background: #3498db;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .skill-chip i {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+    .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
@@ -62,6 +95,46 @@
     .card:hover {
       transform: translateY(-5px);
     }
+    #experience .card + .card {
+      margin-top: 24px;
+    }
+    #experience .card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .exp-content {
+      flex: 1 1 0%;
+    }
+    .exp-logo {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #f4f8fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(52,152,219,0.08);
+      border: 1px solid #e0eaf3;
+      overflow: hidden;
+    }
+    .exp-logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    @media (max-width: 600px) {
+      #experience .card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .exp-logo {
+        margin-top: 12px;
+      }
+    }
     footer {
       background: #2c3e50;
       color: white;
@@ -72,7 +145,76 @@
     a {
       color: #3498db;
     }
+    .contact-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+    .contact-chip {
+      display: flex;
+      align-items: center;
+      background: #eaf3fb;
+      color: #2166a5;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 1.08rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(52,152,219,0.08);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: 1px solid #d0e6fa;
+      text-decoration: none;
+    }
+    .contact-chip:hover {
+      background: #3498db;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      text-decoration: none;
+    }
+    .contact-chip i {
+      margin-right: 12px;
+      font-size: 1.3em;
+    }
+    .exp-duration {
+      display: inline-flex;
+      align-items: center;
+      background: #eaf3fb;
+      color: #2166a5;
+      border-radius: 999px;
+      padding: 5px 14px 5px 10px;
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      margin-top: 2px;
+      margin-left: 2px;
+      box-shadow: 0 1px 4px rgba(52,152,219,0.08);
+      border: 1px solid #d0e6fa;
+      gap: 7px;
+    }
+    .exp-duration i {
+      font-size: 1em;
+      margin-right: 5px;
+      color: #3498db;
+    }
+    .cp-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .cp-links .contact-chip {
+      padding: 8px 16px;
+      font-size: 0.97rem;
+      border-radius: 20px;
+    }
+    .cp-links .contact-chip i {
+      font-size: 1.1em;
+      margin-right: 7px;
+    }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
   <header>
@@ -99,40 +241,76 @@
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="skills">
-      <div class="card"><strong>Languages:</strong> C++, C#, Python, Java, JavaScript</div>
-      <div class="card"><strong>Frameworks & Tools:</strong> .NET Core, Angular, SQL, MongoDB, RabbitMQ</div>
-      <div class="card"><strong>Cloud & AI:</strong> AWS, GenAI, GitHub Copilot, Cursor</div>
+      <span class="skill-chip"><i class="fab fa-cuttlefish"></i> C++</span>
+      <span class="skill-chip"><i class="fab fa-cuttlefish"></i> C#</span>
+      <span class="skill-chip"><i class="fab fa-python"></i> Python</span>
+      <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
+      <span class="skill-chip"><i class="fab fa-js-square"></i> JavaScript</span>
+      <span class="skill-chip"><i class="fas fa-dot-circle"></i> .NET Core</span>
+      <span class="skill-chip"><i class="fab fa-angular"></i> Angular</span>
+      <span class="skill-chip"><i class="fas fa-database"></i> SQL</span>
+      <span class="skill-chip"><i class="fas fa-leaf"></i> MongoDB</span>
+      <span class="skill-chip"><i class="fas fa-stream"></i> RabbitMQ</span>
+      <span class="skill-chip"><i class="fab fa-aws"></i> AWS</span>
+      <span class="skill-chip"><i class="fas fa-robot"></i> GenAI</span>
+      <span class="skill-chip"><i class="fab fa-github"></i> GitHub Copilot</span>
+      <span class="skill-chip"><i class="fas fa-mouse-pointer"></i> Cursor</span>
     </div>
   </section>
 
   <section id="experience">
     <h2>Experience</h2>
     <div class="card">
-      <h3>Software Development Engineer II – IQVIA</h3>
-      <p><em>Feb 2024 – Present</em></p>
-      <ul>
-        <li>Lead core services of Orchestrated Analytics platform.</li>
-        <li>Automated testing with Robot Framework.</li>
-        <li>Improved Push Notification API performance by 50%.</li>
-        <li>Leveraging AI tools to optimize workflows.</li>
-      </ul>
+      <div class="exp-content">
+        <h3>Software Development Engineer II – IQVIA</h3>
+        <span class="exp-duration"><i class="far fa-calendar-alt"></i> Feb 2024 – Present</span>
+        <ul>
+          <li>Lead core services of Orchestrated Analytics platform.</li>
+          <li>Automated testing with Robot Framework.</li>
+          <li>Improved Push Notification API performance by 50%.</li>
+          <li>Leveraging AI tools to optimize workflows.</li>
+        </ul>
+      </div>
+      <div class="exp-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Iqvia-logo-color.svg" alt="IQVIA Logo" />
+      </div>
     </div>
     <div class="card">
-      <h3>Software Engineer II – KONA Software Lab</h3>
-      <p><em>Jul 2022 – Jan 2024</em></p>
-      <ul>
-        <li>Core backend developer for blockchain-powered e-commerce platform.</li>
-        <li>Implemented asynchronous processing, CQRS, Event Sourcing, and DDD.</li>
-        <li>Developed KONA IAM with OpenID Connect + PKCE.</li>
-      </ul>
+      <div class="exp-content">
+        <h3>Software Engineer II – KONA Software Lab</h3>
+        <span class="exp-duration"><i class="far fa-calendar-alt"></i> Jul 2022 – Jan 2024</span>
+        <ul>
+          <li>Core backend developer for blockchain-powered e-commerce platform.</li>
+          <li>Implemented asynchronous processing, CQRS, Event Sourcing, and DDD.</li>
+          <li>Developed KONA IAM with OpenID Connect + PKCE.</li>
+        </ul>
+      </div>
+      <!-- <div class="exp-logo">
+        <img src="https://via.placeholder.com/40" alt="KONA Logo" />
+      </div> -->
     </div>
     <div class="card">
-      <h3>Software Engineer – Samsung R&D Institute</h3>
-      <p><em>Dec 2019 – Jun 2022</em></p>
-      <ul>
-        <li>Improved Angular app performance with lazy-loading & animations.</li>
-        <li>Contributed to patents and passed Samsung SWC certification.</li>
-      </ul>
+      <div class="exp-content">
+        <h3>Software Engineer – Samsung R&D Institute</h3>
+        <span class="exp-duration"><i class="far fa-calendar-alt"></i> Dec 2019 – Jun 2022</span>
+        <ul>
+          <li>Improved Angular app performance with lazy-loading & animations.</li>
+          <li>Contributed to patents and passed Samsung SWC certification.</li>
+        </ul>
+      </div>
+      <div class="exp-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Samsung_wordmark.svg" alt="Samsung Logo" />
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>International Islamic University Chittagong</h3>
+      <p><strong>BS in Computer Science</strong></p>
+      <p>CGPA: 3.7/4.0</p>
+      <span class="exp-duration"><i class="far fa-calendar-alt"></i> Apr 2015 – Dec 2019</span>
     </div>
   </section>
 
@@ -144,20 +322,31 @@
         <p>Developed a personal library management system using .NET Core, Angular, and MSSQL.</p>
         <a href="https://github.com/IHR57/PersonalLibraryManagementSystem" target="_blank">View Project</a>
       </div>
-      <div class="card">
-        <h3>Competitive Programming</h3>
-        <p>CodeForces (Expert, max rating 1811) | LeetCode (Knight, max rating 2092).</p>
-        <a href="https://leetcode.com/Psychedelic57" target="_blank">LeetCode Profile</a> |
-        <a href="https://codeforces.com/profile/Psychedelic" target="_blank">Codeforces Profile</a>
+    </div>
+  </section>
+
+  <section id="competitive-programming">
+    <h2>Competitive Programming</h2>
+    <div class="card">
+      <ul>
+        <li>Solved more than 3500 ACM problems.</li>
+        <li>Participated in ACM ICPC 2018, 2019 and NCPC 2018, 2020</li>
+        <li>6th in CUET IUPC 2019 and USTC IUPC 2018, 2019</li>
+        <li>Ranked top 3 in several intra-university programming contests</li>
+      </ul>
+      <div class="cp-links">
+        <a href="https://leetcode.com/Psychedelic57" target="_blank" class="contact-chip"><i class="fas fa-code"></i> LeetCode Profile</a>
+        <a href="https://codeforces.com/profile/Psychedelic" target="_blank" class="contact-chip"><i class="fas fa-bolt"></i> Codeforces Profile</a>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:iqbalhrasel57@gmail.com">iqbalhrasel57@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/IHR57" target="_blank">github.com/IHR57</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/iqbal-hossain-aa824113b" target="_blank">linkedin.com/in/iqbal-hossain</a></p>
+    <div class="contact-methods">
+      <a class="contact-chip" href="mailto:iqbalhrasel57@gmail.com"><i class="fas fa-envelope"></i> iqbalhrasel57@gmail.com</a>
+      <a class="contact-chip" href="https://linkedin.com/in/iqbal-hossain-aa824113b" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/iqbal-hossain</a>
+    </div>
   </section>
 
   <footer>
